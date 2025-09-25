@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Bhola Hundekari</title>
+  <style>
+    body {font-family:'Poppins',sans-serif; background:#0d1117; color:#e6edf3; margin:0;}
+    header {position:sticky; top:0; background:#0d1117; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.5);}
+    nav {display:flex; justify-content:center; gap:30px; padding:15px;}
+    nav a {font-weight:600; padding:5px 10px; border-radius:5px; transition:0.3s;}
+    nav a:hover, nav a.active {background:#00bcd4; color:#0d1117;}
+
+    .container {max-width:900px; margin:60px auto; padding:20px;}
+    h1,h2 {text-align:center; color:#00bcd4; margin-bottom:20px;}
+    p, li {line-height:1.6; margin-bottom:10px;}
+    ul {list-style:none; padding-left:0;}
+    li::before {content:'• '; color:#00bcd4;}
+    .fade-up {opacity:0; transform:translateY(20px); transition:all 0.8s ease;}
+    .fade-up.active {opacity:1; transform:translateY(0);}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="container fade-up">
+  <h1>About Me</h1>
+  <p>Hello! I am Bhola Hundekari from Pune. I am pursuing B.Sc in Computers at Vishwakarma University (2026). 
+     Passionate about Linux, AWS, DevOps, and Cloud technologies.</p>
+
+  <h2>Education</h2>
+  <ul>
+    <li><strong>B.Sc (Computers)</strong>, Vishwakarma University, Pune – 2026 (7.51/10)</li>
+    <li><strong>Class XII</strong>, Maharashtra Board – 2021 (79.17%)</li>
+    <li><strong>Class X</strong>, Maharashtra Board – 2019 (75%)</li>
+  </ul>
+</section>
+
+<script>
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.classList.add('active');
+    });
+  }, {threshold:0.3});
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

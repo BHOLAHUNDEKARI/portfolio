@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills | Bhola Hundekari</title>
+<style>
+  /* ===== GENERAL ===== */
+  * {margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth;}
+  body {font-family:'Poppins',sans-serif; background:#0d1117; color:#e6edf3;}
+  a {text-decoration:none; color:inherit;}
+  
+  /* ===== NAVBAR ===== */
+  header {position:sticky; top:0; background:#0d1117; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.5);}
+  nav {display:flex; justify-content:space-between; align-items:center; padding:15px 20px;}
+  .nav-links {display:flex; gap:25px;}
+  nav a {font-weight:600; padding:5px 10px; border-radius:5px; transition:0.3s;}
+  nav a:hover, nav a.active {background:#00bcd4; color:#0d1117;}
+
+  /* Hamburger */
+  .hamburger {display:none; flex-direction:column; cursor:pointer;}
+  .hamburger div {width:25px; height:3px; background:#e6edf3; margin:4px; transition:0.3s;}
+  @media(max-width:768px){
+    .nav-links {display:none; flex-direction:column; background:#0d1117; position:absolute; top:60px; right:20px; width:200px; border-radius:8px; padding:10px;}
+    .nav-links.show {display:flex;}
+    .hamburger {display:flex;}
+  }
+
+  /* ===== CONTAINER ===== */
+  .container {max-width:1000px; margin:60px auto; padding:20px;}
+  h1,h2 {text-align:center; color:#00bcd4; margin-bottom:20px;}
+
+  /* ===== SKILLS GRID ===== */
+  .skills-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px;}
+  .skill-card {background:#161b22; padding:20px; border-radius:10px; text-align:center; transition:0.3s; box-shadow:0 2px 10px rgba(0,0,0,0.3);}
+  .skill-card:hover {transform:translateY(-5px); box-shadow:0 5px 20px rgba(0,188,212,0.5);}
+  .skill-card h3 {color:#00bcd4; margin-bottom:10px;}
+  .skill-card p {color:#e6edf3;}
+
+  /* ===== ANIMATION ===== */
+  .fade-up {opacity:0; transform:translateY(20px); transition:all 0.8s ease;}
+  .fade-up.active {opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h2 style="color:#00bcd4;">Bhola</h2>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html" class="active">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+</header>
+
+<section class="container fade-up">
+  <h1>My Skills</h1>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Linux</h3>
+      <p>Linux System Administration & Commands</p>
+    </div>
+    <div class="skill-card">
+      <h3>AWS & DevOps</h3>
+      <p>Cloud Services, CI/CD, Infrastructure</p>
+    </div>
+    <div class="skill-card">
+      <h3>Docker</h3>
+      <p>Containerization & Deployment</p>
+    </div>
+    <div class="skill-card">
+      <h3>Python</h3>
+      <p>Automation & Data Analysis</p>
+    </div>
+    <div class="skill-card">
+      <h3>Networking</h3>
+      <p>Network Security & Configuration</p>
+    </div>
+  </div>
+
+  <h2 style="margin-top:50px;">Certifications</h2>
+  <ul style="margin-top:20px; list-style:none; padding-left:0;">
+    <li>Machine Learning for Real World Applications</li>
+    <li>Data Mining & Analytics</li>
+    <li>Generative AI</li>
+    <li>Linux System Administrator</li>
+    <li>Big Data Analytics – Advanced</li>
+  </ul>
+</section>
+
+<script>
+  // Hamburger toggle
+  function toggleMenu(){
+    document.querySelector('.nav-links').classList.toggle('show');
+  }
+
+  // Scroll animation
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting) entry.target.classList.add('active');
+    });
+  }, {threshold:0.3});
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

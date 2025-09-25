@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Bhola Hundekari</title>
+<style>
+  * {margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth;}
+  body {font-family:'Poppins',sans-serif; background:#0d1117; color:#e6edf3;}
+  a {text-decoration:none; color:inherit;}
+
+  /* NAVBAR */
+  header {position:sticky; top:0; background:#0d1117; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.5);}
+  nav {display:flex; justify-content:space-between; align-items:center; padding:15px 20px;}
+  .nav-links {display:flex; gap:25px;}
+  nav a {font-weight:600; padding:5px 10px; border-radius:5px; transition:0.3s;}
+  nav a:hover, nav a.active {background:#00bcd4; color:#0d1117;}
+  .hamburger {display:none; flex-direction:column; cursor:pointer;}
+  .hamburger div {width:25px; height:3px; background:#e6edf3; margin:4px; transition:0.3s;}
+  @media(max-width:768px){
+    .nav-links {display:none; flex-direction:column; background:#0d1117; position:absolute; top:60px; right:20px; width:200px; border-radius:8px; padding:10px;}
+    .nav-links.show {display:flex;}
+    .hamburger {display:flex;}
+  }
+
+  /* CONTAINER */
+  .container {max-width:900px; margin:60px auto; padding:20px; text-align:center;}
+  h1,h2 {color:#00bcd4; margin-bottom:20px;}
+  input, textarea {width:90%; padding:12px; margin:10px 0; border-radius:5px; border:none; outline:none; background:#161b22; color:#e6edf3;}
+  button {padding:12px 25px; background:#00bcd4; color:#0d1117; font-weight:600; border-radius:5px; cursor:pointer; transition:0.3s;}
+  button:hover {transform:translateY(-3px); box-shadow:0 5px 15px rgba(0,188,212,0.4);}
+  .fade-up {opacity:0; transform:translateY(20px); transition:all 0.8s ease;}
+  .fade-up.active {opacity:1; transform:translateY(0);}
+  .social {margin-top:20px; display:flex; justify-content:center; gap:20px;}
+  .social a {color:#00bcd4; font-size:1.5rem; transition:0.3s;}
+  .social a:hover {color:#fff; transform:scale(1.2);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h2 style="color:#00bcd4;">Bhola</h2>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+  </nav>
+</header>
+
+<section class="container fade-up">
+  <h1>Contact Me</h1>
+  <p>Email: <strong>hundekarbhola@gmail.com</strong></p>
+  <p>Phone: <strong>+91-8208667678</strong></p>
+  <p>Location: Pune, India</p>
+
+  <h2>Get in Touch</h2>
+  <form onsubmit="sendMessage(event)">
+    <input type="text" placeholder="Your Name" required><br>
+    <input type="email" placeholder="Your Email" required><br>
+    <textarea placeholder="Your Message" rows="5" required></textarea><br>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div class="social">
+    <a href="https://github.com/" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+    <a href="mailto:hundekaribhola@gmail.com">Email</a>
+  </div>
+</section>
+
+<script>
+  function toggleMenu(){document.querySelector('.nav-links').classList.toggle('show');}
+  function sendMessage(event){event.preventDefault(); alert("Thank you! Your message has been received.");}
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add('active');});},{threshold:0.3});
+  fadeEls.forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
