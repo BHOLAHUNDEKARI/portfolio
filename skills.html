@@ -37,6 +37,30 @@
   .skill-card h3 {color:#00bcd4; margin-bottom:10px;}
   .skill-card p {color:#e6edf3;}
 
+  /* ===== CERTIFICATIONS ===== */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .cert-card {
+    background: #161b22;
+    padding: 15px;
+    border-radius: 8px;
+    color: #00bcd4;
+    font-weight: 500;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  .cert-card:hover {
+    background: #00bcd4;
+    color: #0d1117;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,188,212,0.6);
+  }
+
   /* ===== ANIMATION ===== */
   .fade-up {opacity:0; transform:translateY(20px); transition:all 0.8s ease;}
   .fade-up.active {opacity:1; transform:translateY(0);}
@@ -88,13 +112,26 @@
   </div>
 
   <h2 style="margin-top:50px;">Certifications</h2>
-  <ul style="margin-top:20px; list-style:none; padding-left:0;">
-    <li>Machine Learning for Real World Applications</li>
-    <li>Data Mining & Analytics</li>
-    <li>Generative AI</li>
-    <li>Linux System Administrator</li>
-    <li>Big Data Analytics – Advanced</li>
-  </ul>
+  <div class="cert-grid">
+    <a href="209.pdf" target="_blank" class="cert-card">
+      Data Modeling and Visualization
+    </a>
+    <a href="50.pdf" target="_blank" class="cert-card">
+      Data Mining & Analytics
+    </a>
+    <a href="G-Ai.pdf" target="_blank" class="cert-card">
+      Generative AI
+    </a>
+    <a href="Linux.pdf" target="_blank" class="cert-card">
+      Linux System Administrator
+    </a>
+    <a href="Coursera KQ6GAAND8QZ4.pdf" target="_blank" class="cert-card">
+      Penetration Testing, Threat Hunting, and Cryptography
+    </a>
+     <a href="Coursera GIH79USTKIYV.pdf" target="_blank" class="cert-card">
+      Computer Networks and Network Security
+    </a>
+  </div>
 </section>
 
 <script>
